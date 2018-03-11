@@ -1,3 +1,5 @@
+package jdk;
+
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
@@ -13,7 +15,7 @@ public class Bosszhiping implements InvocationHandler
     /**
      * 此类为动态代理类
      */
-    Object getinstace(Person target)
+    public Object getinstace(Person target)
     {
         this.target = target;
         System.out.println("bosszhiping正在帮你找工作");
