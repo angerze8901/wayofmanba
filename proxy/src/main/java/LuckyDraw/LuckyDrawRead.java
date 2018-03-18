@@ -1,6 +1,4 @@
-package ReadFile;
-
-import org.apache.tools.ant.util.StringUtils;
+package LuckyDraw;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -13,7 +11,7 @@ import java.util.Random;
 /**
  * Created by wangze on 2018/3/16.
  */
-public class ReadList
+public class LuckyDrawRead
 {
     public static List<String> readFile(String filename) throws IOException
     {
@@ -59,10 +57,11 @@ public class ReadList
         List<String> result = new ArrayList<String>();
         //读取文件路径
         String filename = "D:/抽奖人员名单.txt";
-        ReadList readList = new ReadList();
+        LuckyDrawRead readList = new LuckyDrawRead();
         try
         {
             List<String> listName = readList.readFile(filename);
+            //此处修改返回的名字个数,默认是3个
             for (int i = 0; i < 3; i++)
             {
                 String name = readList.radam(listName);
