@@ -1,4 +1,4 @@
-package cglib;
+package pattern.proxy.cglib;
 
 /**
  * Created by wangze on 2018/3/11.

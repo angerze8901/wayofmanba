@@ -1,4 +1,4 @@
-package jdk;
+package pattern.proxy.jdk;
 
 /**
  * Created by wangze on 2018/3/11.
