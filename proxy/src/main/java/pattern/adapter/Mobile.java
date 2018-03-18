@@ -7,7 +7,6 @@ public class Mobile
 {
     public void charging(IAdapter5v iAdapter5v)
     {
-
         if (iAdapter5v.output5v() == 5)
         {
             System.out.println("电压匹配");
