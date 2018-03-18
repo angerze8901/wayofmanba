@@ -5,5 +5,10 @@ package pattern.adapter;
  */
 public class Voltage220v
 {
-
+    public int output220V()
+    {
+        int srcVol = 220;
+        System.out.println("提供电压: " + srcVol);
+        return srcVol;
+    }
 }
