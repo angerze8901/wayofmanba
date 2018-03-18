@@ -52,6 +52,7 @@ public class LuckyDrawRead
         return list.get(nameNum);
     }
 
+    //运行测试的方法
     public static void main(String[] args)
     {
         List<String> result = new ArrayList<String>();
