@@ -1,0 +1,30 @@
+﻿源码分析作业
+1. org.apache.ibatis.binding.MapperProxy#invoke 这个类的53行什么时候执行？
+通过注释Backport of java.lang.reflect.Method#isDefault()查看反射的Method:
+
+/**
+     * Returns {@code true} if this method is a default
+     * method; returns {@code false} otherwise.
+     *
+     * A default method is a public non-abstract instance method, that
+     * is, a non-static method with a body, declared in an interface
+     * type.
+     *
+     * @return true if and only if this method is a default
+     * method as defined by the Java Language Specification.
+     * @since 1.8
+     */
+    public boolean isDefault() {
+        // Default methods are public non-abstract instance methods
+        // declared in an interface.
+        return ((getModifiers() & (Modifier.ABSTRACT | Modifier.PUBLIC | Modifier.STATIC)) ==
+                Modifier.PUBLIC) && getDeclaringClass().isInterface();
+    }
+
+这里告诉我们默认方法是接口中定义的,非抽象公共的
+并且jdk1.8版本之后支持接口中直接定义一个默认的方法,修饰的默认属性是public的,所以我们可以在TestMapper中定义一个:
+
+default Test DefaultselectByPrimaryKey(Integer id){
+        return null;
+    }
+通过断点可知进入53行执行代码

@@ -1,0 +1,43 @@
+﻿源码分析作业 20180331
+1. TestMapper 作者为什么要设计这样的形式来做？
+为什么不是一个class而是一个interface?
+因为这里最主要的功能是跟数据库交互,实现增删查改等功能,一个接口就已经足以实现该功能,简洁明了,如果是一个class的话,还需要再实现接口中的方法,势必会造成代码冗余
+
+2.org.apache.ibatis.executor.BaseExecutor#queryFromDatabase 322行这行代码的意义
+如果有多个查询同时发生,此处将key value放入cache中(实际就是hashmap),防止另外一个生成的key将这个key覆盖,然后按照不同的key将list查询出的结果放入cache中,达到缓存的作用
+
+3.MyBatis的plugin实现机制
+首先会通过wrap方法判断,目标对象是否有实现对应的拦截接口,如果没有返回对象本身,如果有,通过动态代理返回一个代理对象;代理对象会调用invoke方法,如果当前方法是定义好的需要拦截的方法,则把目标对象,方法,参数封装成Invocation对象,再将Invocation对象作为参数传给interceptor的intercept方法,如果无需拦截,则直接调用method.invoke方法
+
+4.lazy loading 是怎么做到的？
+
+
+
+部分笔记
+
+createResultObject
+
+1.族群隔离 
+2.分类选择大类处理
+3.日志、共性动作很好的分离
+
+
+同源下的delegate -->装饰器
+
+controller
+service 
+	rpc
+	rpc
+	rpc
+	
+	
+1.0版本
+
+TestMapper --- > TestMapper.xml
+找到SQL
+
+
+
+
+
+
