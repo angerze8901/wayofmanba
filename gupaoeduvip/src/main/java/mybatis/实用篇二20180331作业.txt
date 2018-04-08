@@ -10,7 +10,7 @@
 首先会通过wrap方法判断,目标对象是否有实现对应的拦截接口,如果没有返回对象本身,如果有,通过动态代理返回一个代理对象;代理对象会调用invoke方法,如果当前方法是定义好的需要拦截的方法,则把目标对象,方法,参数封装成Invocation对象,再将Invocation对象作为参数传给interceptor的intercept方法,如果无需拦截,则直接调用method.invoke方法
 
 4.lazy loading 是怎么做到的？
-
+JavassistProxyFactory创建一个代理
 
 
 部分笔记
